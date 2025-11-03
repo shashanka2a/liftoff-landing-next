@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   },
   description: "Launch your brand to the moon — modern agency landing page.",
   icons: {
-    icon: "/favicon.ico",
+    icon: "/favicon.svg",
   },
   openGraph: {
     title: "Liftoff Landing",

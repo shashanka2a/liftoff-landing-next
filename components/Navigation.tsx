@@ -1,6 +1,5 @@
 import { motion, AnimatePresence } from 'motion/react';
 import { useState, useEffect } from 'react';
-import { Rocket } from 'lucide-react';
 
 export function Navigation() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -45,9 +44,11 @@ export function Navigation() {
               whileHover={{ scale: 1.02 }}
               transition={{ duration: 0.2 }}
             >
-              <div className="w-8 h-8 sm:w-10 sm:h-10 bg-yellow-400 rounded-full flex items-center justify-center group-hover:shadow-lg group-hover:shadow-yellow-400/50 transition-all duration-300">
-                <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
-              </div>
+              <img
+                src="/logo.svg"
+                alt="Liftoff"
+                className="w-8 h-8 sm:w-10 sm:h-10 group-hover:shadow-lg group-hover:shadow-yellow-400/50 rounded-full transition-all duration-300"
+              />
               <span className="text-black tracking-tight text-lg sm:text-xl">
                 Liftoff
               </span>

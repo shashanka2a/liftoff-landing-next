@@ -1,4 +1,3 @@
-import { Rocket } from 'lucide-react';
 import { LinkedInIcon, TwitterIcon, DribbbleIcon, InstagramIcon } from './CustomIcons';
 import { motion } from 'motion/react';
 
@@ -45,9 +44,7 @@ export function Footer() {
               transition={{ duration: 0.5 }}
             >
               <div className="flex items-center gap-2 sm:gap-3 mb-4 sm:mb-6">
-                <div className="w-8 h-8 sm:w-10 sm:h-10 bg-yellow-400 rounded-full flex items-center justify-center">
-                  <Rocket className="w-4 h-4 sm:w-5 sm:h-5 text-black" />
-                </div>
+                <img src="/logo.svg" alt="Liftoff" className="w-8 h-8 sm:w-10 sm:h-10" />
                 <span className="text-white tracking-tight text-lg sm:text-xl">Liftoff</span>
               </div>
               <p className="text-gray-500 text-xs sm:text-sm mb-4">

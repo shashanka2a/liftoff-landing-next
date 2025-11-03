@@ -113,7 +113,7 @@ export function WorkSection() {
       name: 'Adverzeo',
       description:
         'A premium marketing platform and design suite that empowers brands to create compelling narratives and drive engagement through innovative visual storytelling.',
-      imageUrl: 'https://images.unsplash.com/photo-1758873268877-3cd8ed329ed8?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtb2Rlcm4lMjBhZ2VuY3klMjB3b3Jrc3BhY2UlMjBkZXNpZ258ZW58MXx8fHwxNzYyMTYzNzM2fDA&ixlib=rb-4.1.0&q=80&w=1080',
+      imageUrl: 'https://images.unsplash.com/photo-1618761714954-0b8cd0026356?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
       imagePosition: 'right' as const,
     },
     {
@@ -121,7 +121,7 @@ export function WorkSection() {
       name: 'Payflow',
       description:
         'Seamless global finance with zero hidden fees and instant settlements. A modern payment platform that makes international transactions simple, transparent, and secure.',
-      imageUrl: 'https://images.unsplash.com/photo-1639304572225-d600047df488?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxmaW50ZWNoJTIwbW9iaWxlJTIwYXBwJTIwc2NyZWVufGVufDF8fHx8MTc2MjE2MzczN3ww&ixlib=rb-4.1.0&q=80&w=1080',
+      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
       imagePosition: 'left' as const,
     },
     {
@@ -129,7 +129,7 @@ export function WorkSection() {
       name: 'InOrbyt',
       description:
         'Reward your community. No crypto. No complexity. Just connection. A community engagement platform that simplifies rewards and builds authentic relationships.',
-      imageUrl: 'https://images.unsplash.com/photo-1750056393306-ac672d0dbb8c?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxtaW5pbWFsJTIwYnJhbmRpbmclMjBtb2NrdXB8ZW58MXx8fHwxNzYyMTYzNzM3fDA&ixlib=rb-4.1.0&q=80&w=1080',
+      imageUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
       imagePosition: 'right' as const,
     },
   ];
