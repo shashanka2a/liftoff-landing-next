@@ -66,6 +66,7 @@ const Project = ({ category, name, description, imageUrl, imagePosition }: Proje
         whileInView={{ opacity: 1, scale: 1 }}
         viewport={{ once: true, margin: "-100px" }}
         transition={{ duration: 0.6 }}
+        animate={{ scale: isHovered ? 1.03 : 1 }}
         style={{ y: imageY }}
       >
         <ImageWithFallback
@@ -73,10 +74,25 @@ const Project = ({ category, name, description, imageUrl, imagePosition }: Proje
           alt={name}
           className="w-full h-full object-cover"
         />
+        {/* Soft ambient yellow tint on hover */}
         <motion.div 
           className="absolute inset-0 bg-gradient-to-tr from-yellow-400/20 via-transparent to-transparent"
           initial={{ opacity: 0 }}
           animate={{ opacity: isHovered ? 1 : 0 }}
+          transition={{ duration: 0.5 }}
+        />
+        {/* Highlight sweep microinteraction */}
+        <motion.div
+          className="pointer-events-none absolute inset-y-0 -left-1/3 w-1/3 bg-gradient-to-r from-transparent via-yellow-300/30 to-transparent"
+          initial={false}
+          animate={{ x: isHovered ? '200%' : '0%', opacity: isHovered ? 1 : 0 }}
+          transition={{ duration: 0.9, ease: [0.22, 0.61, 0.36, 1] }}
+        />
+        {/* Subtle top light for depth */}
+        <motion.div
+          className="pointer-events-none absolute inset-0 bg-gradient-to-b from-white/10 to-transparent"
+          initial={{ opacity: 0 }}
+          animate={{ opacity: isHovered ? 1 : 0.4 }}
           transition={{ duration: 0.5 }}
         />
         <div className="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent" />
@@ -113,7 +129,7 @@ export function WorkSection() {
       name: 'Adverzeo',
       description:
         'A premium marketing platform and design suite that empowers brands to create compelling narratives and drive engagement through innovative visual storytelling.',
-      imageUrl: 'https://images.unsplash.com/photo-1618761714954-0b8cd0026356?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      imageUrl: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&q=80&w=1600&h=1000&fit=crop',
       imagePosition: 'right' as const,
     },
     {
@@ -121,7 +137,7 @@ export function WorkSection() {
       name: 'Payflow',
       description:
         'Seamless global finance with zero hidden fees and instant settlements. A modern payment platform that makes international transactions simple, transparent, and secure.',
-      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      imageUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&q=80&w=1600&h=1000&fit=crop',
       imagePosition: 'left' as const,
     },
     {
@@ -129,7 +145,7 @@ export function WorkSection() {
       name: 'InOrbyt',
       description:
         'Reward your community. No crypto. No complexity. Just connection. A community engagement platform that simplifies rewards and builds authentic relationships.',
-      imageUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&q=80&w=1080',
+      imageUrl: 'https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&q=80&w=1600&h=1000&fit=crop',
       imagePosition: 'right' as const,
     },
   ];
