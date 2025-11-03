@@ -1,65 +1,117 @@
-import Image from "next/image";
+"use client";
+
+import { Navigation } from "@/components/Navigation";
+import { ServicesSection } from "@/components/ServicesSection";
+import { WorkSection } from "@/components/WorkSection";
+import { TestimonialsSection } from "@/components/TestimonialsSection";
+import { CTASection } from "@/components/CTASection";
+import { Footer } from "@/components/Footer";
+import { motion, useScroll, useTransform } from "motion/react";
+import { ArrowDownIcon } from "@/components/CustomIcons";
+import { CustomCursor } from "@/components/CustomCursor";
+import { ParticleField } from "@/components/ParticleField";
+import { MorphingBlob } from "@/components/MorphingBlob";
+import { ScrollProgress } from "@/components/ScrollProgress";
+import { MagneticButton } from "@/components/MagneticButton";
+import { TextReveal, CharReveal } from "@/components/TextReveal";
+import { RocketIllustration } from "@/components/CustomIllustrations";
 
 export default function Home() {
+  const { scrollYProgress } = useScroll();
+  const heroY = useTransform(scrollYProgress, [0, 1], ["0%", "50%"]);
+  const heroOpacity = useTransform(scrollYProgress, [0, 0.5], [1, 0]);
+
+  const scrollToServices = () => {
+    const element = document.querySelector("#services");
+    if (element) {
+      element.scrollIntoView({ behavior: "smooth" });
+    }
+  };
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+    <div className="min-h-screen bg-white">
+      <CustomCursor />
+      <ScrollProgress />
+      <Navigation />
+
+      <section className="min-h-screen flex items-center justify-center px-4 sm:px-6 bg-white relative overflow-hidden">
+        <ParticleField />
+
+        <MorphingBlob className="w-[600px] h-[600px] -top-32 -left-32" color="#FACC15" />
+        <MorphingBlob className="w-[500px] h-[500px] -bottom-24 -right-24" color="#000000" />
+
+        <motion.div
+          className="absolute right-10 top-1/2 -translate-y-1/2 w-64 h-64 opacity-20 hidden lg:block"
+          style={{ y: heroY }}
+          initial={{ opacity: 0, x: 100 }}
+          animate={{ opacity: 0.1, x: 0 }}
+          transition={{ duration: 1.5, delay: 0.5 }}
+        >
+          <RocketIllustration />
+        </motion.div>
+
+        <motion.div
+          className="text-center max-w-6xl relative z-10 pt-20 sm:pt-0"
+          style={{ opacity: heroOpacity }}
+        >
+          <div className="mb-6 sm:mb-8 px-4">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-tight">
+              <TextReveal className="text-black" delay={0.2}>
+                Launch your brand
+              </TextReveal>
+              <CharReveal className="text-yellow-400" delay={0.8}>
+                to the moon
+              </CharReveal>
+            </h1>
+          </div>
+
+          <motion.p
+            className="text-black/70 max-w-2xl mx-auto mb-10 sm:mb-12 text-base sm:text-lg lg:text-xl leading-relaxed px-4"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.8 }}
           >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            We craft digital experiences that transcend the ordinary. From strategy to execution, we propel ambitious brands to new heights.
+          </motion.p>
+
+          <motion.div
+            className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-6 px-4 mb-12 sm:mb-16"
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 1.4 }}
           >
-            Documentation
-          </a>
-        </div>
-      </main>
+            <MagneticButton className="w-full sm:w-auto px-8 py-4 bg-yellow-400 text-black rounded-full hover:bg-yellow-500 transition-all duration-300 shadow-lg hover:shadow-xl hover:shadow-yellow-400/50 text-sm sm:text-base touch-manipulation min-h-[44px]">
+              Start Your Journey
+            </MagneticButton>
+            <MagneticButton className="w-full sm:w-auto px-8 py-4 border-2 border-black text-black rounded-full hover:bg-black hover:text-white transition-all duration-300 text-sm sm:text-base touch-manipulation min-h-[44px]">
+              View Our Work
+            </MagneticButton>
+          </motion.div>
+
+          <motion.button
+            onClick={scrollToServices}
+            className="flex flex-col items-center gap-2 text-black/40 hover:text-yellow-400 transition-colors duration-300 cursor-pointer touch-manipulation mx-auto"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ duration: 0.8, delay: 1.2 }}
+            aria-label="Scroll to services"
+          >
+            <span className="text-xs sm:text-sm tracking-wider uppercase">Scroll</span>
+            <motion.div
+              animate={{ y: [0, 8, 0] }}
+              transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
+            >
+              <ArrowDownIcon className="w-5 h-5 sm:w-6 sm:h-6" />
+            </motion.div>
+          </motion.button>
+        </motion.div>
+      </section>
+
+      <ServicesSection />
+      <WorkSection />
+      <TestimonialsSection />
+      <CTASection />
+      <Footer />
     </div>
   );
 }
